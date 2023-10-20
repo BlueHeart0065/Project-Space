@@ -22,7 +22,7 @@ app.engine('ejs' , ejsMate);
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use('/ProjectSpace' , projectRoutes);
+app.use('/ProjectSpace/' , projectRoutes);
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/ProjectSpace').then(() => {

@@ -1,27 +1,109 @@
 <% layout('layouts/boilerplate') %>
 
-<h2>Create new project</h2>
+    <div class="new_hero">
 
-<form action="/ProjectSpace/new" method="post">
-    <label for="title">Project title</label><br>
-    <input type="text" name="title" id="title"><br>
-    <label for="level">Project level</label>
-    <select name="level" id="level">
-        <option value="Beginner">Beginner</option>
-        <option value="Intermidiate">Intermidiate</option>
-        <option value="Advanced">Advanced</option>
-        <option value="Expert">Expert</option>
-    </select><br>
-    <label for="tags">Tags</label>
-    <select name="category" id="category">
-        <option value="Beginner">Beginner</option>
-        <option value="Intermidiate">Intermidiate</option>
-        <option value="Advanced">Advanced</option>
-        <option value="Expert">Expert</option>
-    </select><br>
-    <label for="description">Project description</label><br>
-    <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
-    <label for="author">Project author</label><br>
-    <input type="text" name="author" id="author"><br>
-    <button class="btn btn-success">Submit</button>
-</form>
+        <h3 style="text-align: center; color : #3a3a3a ">Lets create a new project !!</h3>
+        <h5 style="text-align: center; color : #8d8d8d; margin-bottom: 4vw">Fill the details and complete the form to create your project</h5>
+        <form action="/ProjectSpace/new" method="post">
+            <label for="title" class="form-label">Project title</label>
+            <input type="text" name="title" id="title" class="form-control">
+            <div class="drops">
+                <div class="drop">
+                    <label for="level" class="form-label">Project level</label>
+                    <select name="level" id="level" class="form-control">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermidiate">Intermidiate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </div>
+                <div class="drop">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="form-control">
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="Software Development">Software Development</option>
+                        <option value="Game Development">Game Development</option>
+                        <option value="Data Analysis">Data Analysis</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="Embedded Systems">Embedded Systems</option>
+                        <option value="Blockchain">Blockchain</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="Content Management">Content Management</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Multimedia">Multimedia</option>
+                        <option value="Network Infrastructure">Network Infrastructure</option>
+                        <option value="Business Process Automation">Business Process Automation</option>
+                    </select>
+                </div>
+                <div class="drop">
+                    <label for="tags" class="form-label">Tags</label>
+                    <select name="tags" id="tags" class="form-control">
+                        <option value="Project Management">Project Management</option>
+                        <option value="Team Collaboration">Team Collaboration</option>
+                        <option value="Time Management">Time Management</option>
+                        <option value="Agile Methodology">Agile Methodology</option>
+                        <option value="Problem Solving">Problem Solving</option>
+                        <option value="Innovation">Innovation</option>
+                        <option value="Research">Research</option>
+                        <option value="Planning">Planning</option>
+                        <option value="Development Lifecycle">Development Lifecycle</option>
+                        <option value="Testing">Testing</option>
+                        <option value="Quality Assurance">Quality Assurance</option>
+                        <option value="Documentation">Documentation</option>
+                        <option value="Version Control">Version Control</option>
+                        <option value="Communication">Communication</option>
+                        <option value="Debugging">Debugging</option>
+                        <option value="Troubleshooting">Troubleshooting</option>
+                        <option value="Deployment">Deployment</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Scalability">Scalability</option>
+                        <option value="Performance Optimization">Performance Optimization</option>
+                        <option value="Security Measures">Security Measures</option>
+                        <option value="User Feedback">User Feedback</option>
+                        <option value="User Testing">User Testing</option>
+                        <option value="Continuous Improvement">Continuous Improvement</option>
+                        <option value="Data Analysis">Data Analysis</option>
+                        <option value="Reporting">Reporting</option>
+                        <option value="Risk Assessment">Risk Assessment</option>
+                        <option value="Budgeting">Budgeting</option>
+                        <option value="Resource Allocation">Resource Allocation</option>
+                        <option value="Stakeholder Management">Stakeholder Management</option>
+                        <option value="Client Relations">Client Relations</option>
+                        <option value="Business Analysis">Business Analysis</option>
+                        <option value="Market Research">Market Research</option>
+                        <option value="Marketing Strategy">Marketing Strategy</option>
+                        <option value="Product Design">Product Design</option>
+                        <option value="User-Centric Approach">User-Centric Approach</option>
+                        <option value="Prototyping">Prototyping</option>
+                        <option value="Cross-Platform Compatibility">Cross-Platform Compatibility</option>
+                        <option value="Integration">Integration</option>
+                        <option value="User Authentication">User Authentication</option>
+                        <option value="Data Privacy">Data Privacy</option>
+                        <option value="Compliance Standards">Compliance Standards</option>
+                        <option value="User Training">User Training</option>
+                        <option value="Customer Support">Customer Support</option>
+                        <option value="User Engagement">User Engagement</option>
+                        <option value="Performance Metrics">Performance Metrics</option>
+                        <option value="Customer Satisfaction">Customer Satisfaction</option>
+                        <option value="Success Metrics">Success Metrics</option>
+                        <option value="Feedback Loops">Feedback Loops</option>
+                        <option value="Project Evaluation">Project Evaluation</option>
+                    </select>
+                </div>
+            </div>
+            <label for="description" class="form-label">Project description</label>
+            <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea><br>
+            <label for="author" class="form-label">Project author</label><br>
+            <input type="text" name="author" id="author" class="form-control">
+            <label for="contributors" class="form-label">Project contributors</label>
+            <input type="text" name="contributors" id="contributors" class="form-control">
+            <button class="btn btn-success">Submit</button>
+        </form>
+    </div>

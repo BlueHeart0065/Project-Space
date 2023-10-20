@@ -79,6 +79,45 @@ input{
     background-color: #EAECF9;
 }
 
+.new_hero{
+    display: flex;
+    flex-direction: column;
+    background-color: #EAECF9;
+    margin: 0vw 2vw 0vw 6vw;
+    width: 60vw;
+    height: fit-content;
+    border-radius: 30px;
+    padding: 8vw;
+}
+
+.form-label{
+    font-size: 1vw;
+    font-weight: 500;
+    margin-bottom: 1vw;
+}
+
+.form-control{
+    height: 3vw;
+    font-weight: 300;
+    margin-bottom: 2vw;
+    border-radius: 10px;
+}
+
+.drops{
+    display: flex;
+    flex-direction: row;
+}
+
+.drops .form-control{
+    width: 12.5vw;
+}
+
+.drop{
+    display: flex;
+    flex-direction: column;
+    margin: 0vw 3vw 0vw 0vw;
+}
+
 
 
 
