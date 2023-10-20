@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate')  %>
+
+<link rel="stylesheet" href="home.css">
+
+<div class="hero">
+    <div class="text">
+        <h1>Welcome user</h1>
+        <p>Share your projects <br> and show it to the world</p>
+        <a href="/ProjectSpace/new"><button>Add project + </button> </a>  
+    </div>
+    <div class="illustrations">
+        <img src="/images/Planet.png" alt="" class="planet">
+        <img src="/images/Rocket.png" alt="" class="rocket">
+        <img src="/images/Astro.png" alt="" class="astro">
+    </div>
+</div>
+
+<div class="projects">
+
+    <h5>All projects</h5>
+    
+    <div class="projectLayout">
+
+        <% for (project of allProjects) { %>
+            <a href="/ProjectSpace/<%= project.id  %>">
+
+                <div class="projectCard">
+                    <img src="<%= project.image  %>" alt="" class="thumbnail">
+                    <p class="pname"><%= project.title  %></p>
+                    <p class="pauth">Project by <%= project.author  %></p>
+                    <p class="pdesc">Uploaded on : <%= project.date  %></p>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</div>

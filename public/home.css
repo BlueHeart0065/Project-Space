@@ -1,0 +1,147 @@
+.hero{
+    display: flex;
+    flex-direction: row;
+    background-image: url(/images/Gradient.png);
+    width: 87vw;
+    height: 28vw;
+    border-radius: 30px;
+    margin: 3vw auto 3vw auto;
+    background-size: cover;
+    overflow: visible;
+}
+
+img{
+    opacity: 1;
+}
+
+
+.text{
+    margin: 5vw 0vw 0vw 6vw;
+}
+
+.text h1{
+    color: white;
+    font-size: 3vw;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.text p{
+    color: white;
+    font-size: 1.4vw;
+    letter-spacing: 3px;
+    margin-top: 3vw;
+}
+
+.text button{
+    border: none;
+    padding: 0.8vw 4vw 0.8vw 4vw;
+    border-radius: 30px;
+    font-size: 0.9vw;
+    background-color: white;
+    margin-top: 3vw;
+}
+
+.illustrations{
+    margin-top: -1vw;
+}
+
+.planet{
+    width: 37vw;
+    height: 25vw;
+    opacity: 1;
+    /* border: 1px solid black; */
+    animation: float 9s linear infinite;
+
+}
+
+.rocket{
+    width: 9vw;
+    height: 7vw;
+    opacity: 1;
+    margin: 25vw 0vw 0vw -10vw;
+    animation: float 4s linear infinite;
+}
+.astro{
+    width: 12vw;
+    height: 15vw;
+    opacity: 1;
+    margin: -3vw 0vw 0vw 3vw;
+    /* position: relative; */
+    animation: float 3s linear infinite;
+}
+
+
+.projects{
+    margin-top: 10vw;
+}
+
+.projects h5{
+    margin: 0vw auto 3vw auto;
+    text-align: center;
+}
+
+.projectLayout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 82vw;
+    margin: 1vw auto 10vw auto;
+}
+
+
+.projectCard{
+    margin: 1vw 2vw 1vw 2vw;
+    width: 23vw;
+    transition: all 0.3s;
+}
+
+.projectCard:hover{
+    transform: scale(1.05);
+}
+
+.thumbnail{
+    border-radius: 30px;
+    width: 23vw;
+    height: 15vw;
+    margin: 1vw auto 1vw auto;
+
+}
+
+.pname{
+    font-size: 1vw;
+    font-weight: 600;
+    margin-bottom: 0.6vw;
+    color: black;
+}
+
+.pauth , .pdesc{
+    margin-bottom: 0.4vw;
+    font-size: 0.8vw;
+    color: black;
+}
+
+.pdesc{
+    color: rgb(161, 161, 161);
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0vw);
+    }
+    25% {
+        transform: translateY(-1vw);
+    }
+    50% {
+        transform: translateY(0vw);
+    }
+    75% {
+        transform: translateY(1vw);
+    }
+    100% {
+        transform: translateY(0vw);
+    }
+
+}
+

@@ -1,0 +1,13 @@
+<% layout('layouts/boilerplate') %>
+
+<h2>Edit project</h2>
+
+<form action="/ProjectSpace/<%= project.id %>/edit?_method=PUT" method="post">
+    <label for="title">Project title</label><br>
+    <input type="text" name="title" id="title" value="<%= project.title %>"><br>
+    <label for="description">Project description</label><br>
+    <textarea name="description" id="description" cols="30" rows="10"><%= project.description %></textarea><br>
+    <label for="author">Project author</label><br>
+    <input type="text" name="author" id="author" value="<%= project.author  %>"><br>
+    <button class="btn btn-success">Update</button>
+</form>

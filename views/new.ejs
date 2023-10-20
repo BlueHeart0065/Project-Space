@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate') %>
+
+<h2>Create new project</h2>
+
+<form action="/ProjectSpace/new" method="post">
+    <label for="title">Project title</label><br>
+    <input type="text" name="title" id="title"><br>
+    <label for="level">Project level</label>
+    <select name="level" id="level">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermidiate">Intermidiate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Expert">Expert</option>
+    </select><br>
+    <label for="tags">Tags</label>
+    <select name="category" id="category">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermidiate">Intermidiate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Expert">Expert</option>
+    </select><br>
+    <label for="description">Project description</label><br>
+    <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
+    <label for="author">Project author</label><br>
+    <input type="text" name="author" id="author"><br>
+    <button class="btn btn-success">Submit</button>
+</form>
