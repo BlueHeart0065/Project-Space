@@ -11,12 +11,16 @@ module.exports.new = (req , res) => {
 }
 
 module.exports.postNew = async (req , res) => {
-    const {title , description , author} = req.body;
+    const {title , description , author , level , category , tags , contributors} = req.body;
 
     const newProject = new Project({
         title : title ,
         description : description , 
-        author : author
+        author : author,
+        level : level,
+        category : category,
+        tags : tags,
+        contributors : contributors
     });
 
     await newProject.save();

@@ -10,6 +10,8 @@ const methodOverride = require('method-override');
 
 //exports
 const projectRoutes = require('./routes/project-routes');
+const expressError = require('./utils/expressError');
+const wrapAsync = require('./utils/wrapAsync');
 
 const app = express();
 
@@ -34,6 +36,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/ProjectSpace').then(() => {
 app.get('/' , (req , res) => {
     res.send('working');
 });
+
+app.use((err , req , res , next) => {
+    const {statusCode = 500} = err;
+    if(!err.message) err.message = 'Something went wrong';
+    res.status(statusCode).render('error' , {err , statusCode});
+})
 
 app.listen(3000 , () => {
     console.log(`app listening on port 3000`);
