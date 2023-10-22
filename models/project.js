@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Comment = require('./comment');
 
 const Schema = mongoose.Schema;
 
@@ -111,7 +112,11 @@ const ProjectSchema = new Schema({
     },
     image : {
         type : String
-    }
+    },
+    comments : [{
+        type : Schema.Types.ObjectId,
+        ref : 'Comment'
+    }]
 });
 
 const Project = mongoose.model('Project' , ProjectSchema);

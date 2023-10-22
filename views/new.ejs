@@ -4,13 +4,13 @@
 
         <h3 style="text-align: center; color : #3a3a3a ">Lets create a new project !!</h3>
         <h5 style="text-align: center; color : #8d8d8d; margin-bottom: 4vw">Fill the details and complete the form to create your project</h5>
-        <form action="/ProjectSpace/new" method="post">
+        <form action="/ProjectSpace/new" method="post" novalidate class="needs_validation">
             <label for="title" class="form-label">Project title</label>
-            <input type="text" name="title" id="title" class="form-control">
+            <input type="text" name="title" id="title" class="form-control" required>
             <div class="drops">
                 <div class="drop">
                     <label for="level" class="form-label">Project level</label>
-                    <select name="level" id="level" class="form-control">
+                    <select name="level" id="level" class="form-control" required>
                         <option value="Beginner">Beginner</option>
                         <option value="Intermidiate">Intermidiate</option>
                         <option value="Advanced">Advanced</option>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="drop">
                     <label for="category" class="form-label">Category</label>
-                    <select name="category" id="category" class="form-control">
+                    <select name="category" id="category" class="form-control" required>
                         <option value="Web Development">Web Development</option>
                         <option value="Mobile App Development">Mobile App Development</option>
                         <option value="Software Development">Software Development</option>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="drop">
                     <label for="tags" class="form-label">Tags</label>
-                    <select name="tags" id="tags" class="form-control">
+                    <select name="tags" id="tags" class="form-control" required>
                         <option value="Project Management">Project Management</option>
                         <option value="Team Collaboration">Team Collaboration</option>
                         <option value="Time Management">Time Management</option>
@@ -99,11 +99,11 @@
                 </div>
             </div>
             <label for="description" class="form-label">Project description</label>
-            <textarea name="description" id="description" cols="30" rows="10" class="form-control" style="height: 10vw;"></textarea><br>
+            <textarea name="description" id="description" cols="30" rows="10" class="form-control" style="height: 10vw;" required></textarea><br>
             <label for="author" class="form-label">Project author</label><br>
-            <input type="text" name="author" id="author" class="form-control">
+            <input type="text" name="author" id="author" class="form-control" required>
             <label for="contributors" class="form-label">Project contributors</label>
-            <input type="text" name="contributors" id="contributors" class="form-control">
+            <input type="text" name="contributors" id="contributors" class="form-control" required>
             <button class="btn btn-success">Submit</button>
         </form>
     </div>

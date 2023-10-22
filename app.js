@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 //exports
 const projectRoutes = require('./routes/project-routes');
 const expressError = require('./utils/expressError');
-const wrapAsync = require('./utils/wrapAsync');
+const commentRoutes = require('./routes/comment-routes');
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use('/ProjectSpace/' , projectRoutes);
+app.use('/ProjectSpace/:id/' , commentRoutes);
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/ProjectSpace').then(() => {
@@ -36,6 +37,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/ProjectSpace').then(() => {
 app.get('/' , (req , res) => {
     res.send('working');
 });
+
+app.all('*' , (req , res , next) => {
+    next(new expressError('Page not found' , 404));
+})
 
 app.use((err , req , res , next) => {
     const {statusCode = 500} = err;

@@ -25,7 +25,7 @@ const seedDB = async () => {
             title : `${projectData[randomNumber].title}`,
             description : `${projectData[randomNumber].description}`,
             author : `${projectData[randomNumber].author}`,
-            image : 'https://www.elprocus.com/wp-content/uploads/Arduino-Uno-Projects.jpg'
+            image : 'https://www.elprocus.com/wp-content/uploads/Arduino-Uno-Projects.jpg',
         });
 
         await seedProject.save();

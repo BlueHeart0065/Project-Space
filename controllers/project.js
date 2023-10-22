@@ -1,16 +1,16 @@
 const Project = require('../models/project');
 
 
-module.exports.index  = async (req , res) => {
+module.exports.index  = async (req , res , next) => {
     const allProjects = await Project.find({});
     res.render('home' , {allProjects});
 }
 
-module.exports.new = (req , res) => {
+module.exports.new = (req , res , next) => {
     res.render('new');
 }
 
-module.exports.postNew = async (req , res) => {
+module.exports.postNew = async (req , res , next) => {
     const {title , description , author , level , category , tags , contributors} = req.body;
 
     const newProject = new Project({
@@ -28,15 +28,15 @@ module.exports.postNew = async (req , res) => {
     res.redirect('/ProjectSpace');
 }
 
-module.exports.show = async (req , res) => {
+module.exports.show = async (req , res , next) => {
     const id = req.params.id;
 
-    const project = await Project.findById(id);
+    const project = await Project.findById(id).populate('comments');
 
     res.render('show' , {project});
 }
 
-module.exports.edit = async (req , res) => {
+module.exports.edit = async (req , res , next) => {
     const id = req.params.id;
 
     const project = await Project.findById(id);
@@ -44,7 +44,7 @@ module.exports.edit = async (req , res) => {
     res.render('edit' , {project});
 }
 
-module.exports.putEdit = async (req , res) => {
+module.exports.putEdit = async (req , res , next) => {
     const id = req.params.id;
     const {title , description , author} = req.body;
 
@@ -55,7 +55,7 @@ module.exports.putEdit = async (req , res) => {
     res.redirect(`/ProjectSpace/${id}`);
 }
 
-module.exports.delete = async (req , res) => {
+module.exports.delete = async (req , res , next) => {
     const id = req.params.id;
 
     await Project.findByIdAndDelete(id);
