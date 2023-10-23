@@ -6,6 +6,8 @@ const ejsMate = require('ejs-mate');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 
 //exports
@@ -24,6 +26,25 @@ app.engine('ejs' , ejsMate);
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(flash());
+
+app.use(session({
+    secret : 'thisisthesecret',
+    resave : false,
+    saveUninitialized : true,
+    cookie : {
+        httpOnly : true,
+        expires : Date.now() + (1000 * 60 * 60 * 24 * 7 ),
+        maxAge : (1000 * 60 * 60 * 24 * 7 )
+    }
+}))
+
+app.use((req , res , next) => {
+    res.locals.success = req.flash('success');
+    res.locals.deletion = req.flash('deletion');
+    next();
+});
+
 app.use('/ProjectSpace/' , projectRoutes);
 app.use('/' , commentRoutes);
 

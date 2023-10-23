@@ -1,4 +1,6 @@
 const Project = require('../models/project');
+const flash = require('connect-flash');
+
 
 
 module.exports.index  = async (req , res , next) => {
@@ -24,8 +26,8 @@ module.exports.postNew = async (req , res , next) => {
     });
 
     await newProject.save();
-
-    res.redirect('/ProjectSpace');
+    req.flash('success' , 'Your project has been uploaded successfully!!');
+    res.redirect(`/ProjectSpace/${newProject.id}`);
 }
 
 module.exports.show = async (req , res , next) => {
@@ -51,6 +53,7 @@ module.exports.putEdit = async (req , res , next) => {
     const editProject = await Project.findByIdAndUpdate(id , {'title' : title , 'description' : description , 'author' : author});
 
     await editProject.save();
+    req.flash('success' , 'Project updated successfully!!');
 
     res.redirect(`/ProjectSpace/${id}`);
 }
@@ -59,6 +62,7 @@ module.exports.delete = async (req , res , next) => {
     const id = req.params.id;
 
     await Project.findByIdAndDelete(id);
+    req.flash('deletion' , 'Your project has been deleted!!');
 
     res.redirect('/ProjectSpace');
 }

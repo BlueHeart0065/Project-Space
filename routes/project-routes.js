@@ -13,7 +13,7 @@ const validateProject = (req ,res , next) => {
     const projectSchema = joi.object({
         title : joi.string().required(),
         description : joi.string().required(),
-        category : joi.array().items(joi.string()).required(),
+        category : joi.array().items(joi.string()).required,
         tags : joi.array().items(joi.string()).required(),
         project_level : joi.string().required(),
         author : joi.string().required(),
