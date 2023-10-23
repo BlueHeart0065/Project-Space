@@ -121,5 +121,13 @@ const ProjectSchema = new Schema({
 
 const Project = mongoose.model('Project' , ProjectSchema);
 
+ProjectSchema.post('findOneAndDelete' , async function(doc) {
+    if(doc) {
+        await Comment.deleteMany({
+            _id : {$in : doc.comments}
+        });
+    }
+})
+
 module.exports = Project;
 

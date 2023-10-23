@@ -14,19 +14,27 @@
 </div>
 
 <div class="all_comments">
-    <% for(let comment of project.comments){ %>\
-        <p><%= comment.commentText  %></p>
+
+    <div class="add_comment">
+        <form action="/ProjectSpace/<%= project.id  %>/comments" method="post" novalidate class="needs_validation">
+            <label for="commentText" class="form-label">Comment on this project</label>
+            <textarea name="commentText" id="commentText" cols="30" rows="10" class="form-control" style="height: 8vw;" placeholder="Write your comment here..." required></textarea>
+            <button class="btn btn-primary">Add comment</button>
+        </form>
+    
+    </div>
+
+    <% for(let comment of project.comments){ %>
+        <div class="single_comment">
+            <p><%= comment.commentText  %></p>
+            <form action="/ProjectSpace/<%= project.id  %>/<%= comment.id  %>?_method=DELETE" method="post">
+                <button class="btn btn-secondary">Remove</button>
+            </form>
+        </div>
     <% } %>
 </div>
 
-<div class="add_comment">
-    <form action="/ProjectSpace/<%= project.id  %>/comments" method="post">
-        <label for="commentText" class="form-label">Comment on this project</label>
-        <textarea name="commentText" id="commentText" cols="30" rows="10" class="form-control"></textarea>
-        <button class="btn btn-primary">Add comment</button>
-    </form>
 
-</div>
 
 
 <a href="/ProjectSpace/<%= project.id %>/edit"><button class="btn btn-info">Edit</button></a>

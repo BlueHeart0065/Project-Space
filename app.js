@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use('/ProjectSpace/' , projectRoutes);
-app.use('/ProjectSpace/:id/' , commentRoutes);
+app.use('/' , commentRoutes);
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/ProjectSpace').then(() => {

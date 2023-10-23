@@ -12,11 +12,23 @@ module.exports.createComment = async (req , res , next) => {
         commentText : commentText
     });
 
-    console.log(comment);
+    console.log(project);
 
     project.comments.push(comment);
     await project.save();
     await comment.save();
 
     res.redirect(`/ProjectSpace/${id}`);
+}
+
+module.exports.deleteComment = async (req , res ,next) => {
+    const id = req.params.id;
+    const commentId = req.params.commentId;
+
+    await Project.findByIdAndUpdate(id , {$pull : {comments : commentId}});
+    await Comment.findByIdAndDelete(commentId);
+
+    res.redirect(`/ProjectSpace/${id}`);
+
+
 }

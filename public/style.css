@@ -138,6 +138,26 @@ input{
     box-shadow: 0px 4px 20px rgb(165, 165, 165);
 }
 
+.all_comments{
+    display: flex;
+    flex-direction: column;
+    background-color: #EAECF9;
+    margin: 0vw 2vw 2vw 6vw;
+    width: 60vw;
+    height: fit-content;
+    border-radius: 30px;
+    padding: 4vw;
+}
+
+.single_comment{
+    width: 40vw;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: white;
+    padding: 1vw;
+    margin-top: 1vw ;
+}
+
 
 
 
