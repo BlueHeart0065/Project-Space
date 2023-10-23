@@ -100,11 +100,12 @@ const ProjectSchema = new Schema({
         enum : ['Beginner' , 'Intermediate' , 'Advanced' , 'Expert']
     },
     author : {
-        type : String , 
-        required : true,
+        type : Schema.Types.ObjectId , 
+        ref : 'User'
     },
     contributors : [{
-        type : String
+        type : String,
+        default : 'none'
     }],
     date : {
         type : Date,

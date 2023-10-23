@@ -9,8 +9,8 @@
         <input type="text" name="title" id="title" class="form-control" required value="<%= project.title %>">
         <div class="drops">
             <div class="drop">
-                <label for="level" class="form-label">Project level</label>
-                <select name="level" id="level" class="form-control" required>
+                <label for="project_level" class="form-label">Project level</label>
+                <select name="project_level" id="project_level" class="form-control" required>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermidiate">Intermidiate</option>
                     <option value="Advanced">Advanced</option>
@@ -100,8 +100,6 @@
         </div>
         <label for="description" class="form-label">Project description</label>
         <textarea name="description" id="description" cols="30" rows="10" class="form-control" style="height: 10vw;" required> <%= project.description  %></textarea><br>
-        <label for="author" class="form-label">Project author</label><br>
-        <input type="text" name="author" id="author" class="form-control" required value="<%= project.author  %>">
         <label for="contributors" class="form-label">Project contributors</label>
         <input type="text" name="contributors" id="contributors" class="form-control" value="<%= project.contributors  %>">
         <button class="btn btn-success">Submit</button>

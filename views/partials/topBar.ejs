@@ -8,8 +8,13 @@
     </div>
 
     <a href="/ProjectSpace" class="refs" style="margin-left: 4vw;">Home</a>
-    <a href="/ProjectSpace/about" class="refs">About</a>
-    <a href="/ProjectSpace/trending" class="refs">Trending</a>
+    <% if(!currentUser){ %>
+        <a href="/ProjectSpace/login" class="refs">Login</a>
+        <a href="/ProjectSpace/register" class="refs">Sign-up</a>
+    <% } else {%>
+        <a href="/ProjectSpace/about" class="refs">About</a>
+        <a href="/ProjectSpace/logout" class="refs">Logout</a>
+    <% } %>
 
     <p class="title">PROJECT SPACE</p>
 

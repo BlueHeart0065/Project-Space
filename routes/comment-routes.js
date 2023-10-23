@@ -27,12 +27,21 @@ const validateComment = (req , res , next) => {
     }
 }
 
+const isLoggedin = (req , res , next) => {
+    if(!req.isAuthenticated()){
+        req.flash('failure' , 'You need to be logged in to perform this action');
+        req.session.returnTo = req.originalUrl;
+        return res.redirect('/ProjectSpace/login');
+    }
+    next();
+}
+
 
 const router = express.Router();
 
-router.post('/ProjectSpace/:id/comments',validateComment ,commentControl.createComment );
+router.post('/ProjectSpace/:id/comments',isLoggedin , validateComment , wrapAsync(commentControl.createComment) );
 
-router.delete('/ProjectSpace/:id/:commentId' , commentControl.deleteComment);
+router.delete('/ProjectSpace/:id/:commentId' , isLoggedin ,wrapAsync(commentControl.deleteComment));
 
 
 

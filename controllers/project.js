@@ -13,13 +13,12 @@ module.exports.new = (req , res , next) => {
 }
 
 module.exports.postNew = async (req , res , next) => {
-    const {title , description , author , level , category , tags , contributors} = req.body;
+    const {title , description , project_level , category , tags , contributors} = req.body;
 
     const newProject = new Project({
         title : title ,
         description : description , 
-        author : author,
-        level : level,
+        project_level : project_level,
         category : category,
         tags : tags,
         contributors : contributors
@@ -48,9 +47,18 @@ module.exports.edit = async (req , res , next) => {
 
 module.exports.putEdit = async (req , res , next) => {
     const id = req.params.id;
-    const {title , description , author} = req.body;
+    const {title , description , author , project_level , category , tags , contributors} = req.body;
 
-    const editProject = await Project.findByIdAndUpdate(id , {'title' : title , 'description' : description , 'author' : author});
+    const editProject = await Project.findByIdAndUpdate(id , 
+        {
+        'title' : title ,
+        'description' : description ,
+        'author' : author ,
+        'project_level' : project_level ,
+        'category' : category,
+        'tags' : tags,
+        'contributors' : contributors
+    });
 
     await editProject.save();
     req.flash('success' , 'Project updated successfully!!');
