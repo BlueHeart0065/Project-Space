@@ -4,7 +4,7 @@
 
     <h3 style="text-align: center; color : #3a3a3a ">Lets create a new project !!</h3>
     <h5 style="text-align: center; color : #8d8d8d; margin-bottom: 4vw">Fill the details and complete the form to create your project</h5>
-    <form action="/ProjectSpace/<%= project.id %>/edit?_method=PUT" method="post" novalidate class="needs_validation">
+    <form action="/ProjectSpace/<%= project.id %>/edit?_method=PUT" method="post" novalidate class="needs_validation" enctype="multipart/form-data">
         <label for="title" class="form-label">Project title</label>
         <input type="text" name="title" id="title" class="form-control" required value="<%= project.title %>">
         <div class="drops">

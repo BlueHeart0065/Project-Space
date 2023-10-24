@@ -7,6 +7,9 @@ const Project = require('../models/project');
 const projectControl = require('../controllers/project');
 const wrapAsync = require('../utils/wrapAsync');
 const expressError = require('../utils/expressError');
+const {storage} = require('../cloudinary');
+const multer = require('multer')
+const upload = multer({storage});
 
 const validateProject = (req ,res , next) => {
 
@@ -17,7 +20,8 @@ const validateProject = (req ,res , next) => {
         category : joi.string(),
         tags : joi.string(),
         project_level : joi.string(),
-        contributors : joi.string()
+        contributors : joi.string(),
+        deleteimages : joi.array()
     });
 
     const {error} = projectSchema.validate(req.body);
@@ -65,7 +69,7 @@ router.post('/new' , isLoggedin ,validateProject , wrapAsync(projectControl.post
 
 router.get('/:id/edit' , isLoggedin, isAuthor ,wrapAsync(projectControl.edit));
 
-router.put('/:id/edit' , isLoggedin, isAuthor ,validateProject ,wrapAsync(projectControl.putEdit));
+router.put('/:id/edit' , isLoggedin, isAuthor, upload.array('image') ,validateProject ,wrapAsync(projectControl.putEdit));
 
 router.delete('/:id' , isLoggedin, isAuthor ,wrapAsync(projectControl.delete));
 

@@ -111,9 +111,10 @@ const ProjectSchema = new Schema({
         type : Date,
         default : Date.now
     },
-    image : {
-        type : String
-    },
+    images : [{
+        url : String,
+        folder : String
+    }],
     comments : [{
         type : Schema.Types.ObjectId,
         ref : 'Comment'

@@ -1,5 +1,6 @@
 const Project = require('../models/project');
 const flash = require('connect-flash');
+const {cloudinary} = require('../cloudinary');
 
 
 
@@ -23,6 +24,8 @@ module.exports.postNew = async (req , res , next) => {
         tags : tags,
         contributors : contributors
     });
+
+    newProject.images = req.files.map(f => ({url : f.path , filename : f.filename}))
 
     await newProject.save();
     req.flash('success' , 'Your project has been uploaded successfully!!');
@@ -59,6 +62,17 @@ module.exports.putEdit = async (req , res , next) => {
         'tags' : tags,
         'contributors' : contributors
     });
+
+    const imgs = req.files.map(f => ({url : f.path , filename : f.filename}));
+    editProject.images.push(...imgs);
+
+    if(req.body.deleteimages){
+        for(let filename of req.body.deleteimages){
+            await cloudinary.uploader.destroy(filename);
+        }
+        await editProject.updateOne({$pull : {images : {filename : {$in:  req.body.deleteimages}}}});
+        
+    }
 
     await editProject.save();
     req.flash('success' , 'Project updated successfully!!');
